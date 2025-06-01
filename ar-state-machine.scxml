@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?><scxml initial="SENT" version="1.0" xmlns:sqrl="http://squirrelframework.org/squirrel">
+    <sqrl:fsm context-insensitive="true" context-type="com.vincenzoracca.statemachinejava.model.PaperContext" event-type="com.vincenzoracca.statemachinejava.ar.ArEvent" fsm-type="com.vincenzoracca.statemachinejava.ar.ArStateMachine" id="Oz8P0iuop6" state-type="com.vincenzoracca.statemachinejava.ar.ArDeliveryState"/>
+    <state id="SENT">
+        <transition cond="instance#org.squirrelframework.foundation.fsm.Conditions$Always" event="CON996" sqrl:priority="1" sqrl:type="EXTERNAL" target="AR_PRESA_IN_CARICO">
+            <sqrl:action content="com.vincenzoracca.statemachinejava.action.MetaAction@2d0399f4"/>
+        </transition>
+    </state>
+    <state id="AR_IRREPERIBILITA_ASSOLUTA_DEMAT">
+        <transition cond="instance#org.squirrelframework.foundation.fsm.Conditions$Always" event="RECRN002E" sqrl:priority="1" sqrl:type="EXTERNAL" target="AR_IRREPERIBILITA_ASSOLUTA_DEMAT">
+            <sqrl:action content="com.vincenzoracca.statemachinejava.action.DematAction@14dd7b39"/>
+        </transition>
+        <transition cond="instance#org.squirrelframework.foundation.fsm.Conditions$Always" event="RECRN002F" sqrl:priority="1" sqrl:type="EXTERNAL" target="AR_IRREPERIBILITA_ASSOLUTA_FASCICOLO_CHIUSO">
+            <sqrl:action content="com.vincenzoracca.statemachinejava.action.FascicoloChiusoAction@66ea810"/>
+        </transition>
+    </state>
+    <state id="AR_INESITO">
+        <transition cond="instance#org.squirrelframework.foundation.fsm.Conditions$Always" event="RECRN006" sqrl:priority="1" sqrl:type="EXTERNAL" target="AR_FURTO_SMARRIMENTO_DETERIORAMENTO">
+            <sqrl:action content="com.vincenzoracca.statemachinejava.action.RetryableAction@6cd24612"/>
+        </transition>
+    </state>
+    <state id="AR_IRREPERIBILITA_ASSOLUTA_FASCICOLO_CHIUSO"/>
+    <state id="AR_IRREPERIBILITA_ASSOLUTA_PREESITO">
+        <transition cond="instance#org.squirrelframework.foundation.fsm.Conditions$Always" event="RECRN002E" sqrl:priority="1" sqrl:type="EXTERNAL" target="AR_IRREPERIBILITA_ASSOLUTA_DEMAT">
+            <sqrl:action content="com.vincenzoracca.statemachinejava.action.DematAction@5dafbe45"/>
+        </transition>
+    </state>
+    <state id="AR_PRESA_IN_CARICO">
+        <transition cond="instance#org.squirrelframework.foundation.fsm.Conditions$Always" event="RECRN010" sqrl:priority="1" sqrl:type="EXTERNAL" target="AR_INESITO">
+            <sqrl:action content="com.vincenzoracca.statemachinejava.action.MetaAction@2254127a"/>
+        </transition>
+        <transition cond="instance#org.squirrelframework.foundation.fsm.Conditions$Always" event="RECRN006" sqrl:priority="1" sqrl:type="EXTERNAL" target="AR_FURTO_SMARRIMENTO_DETERIORAMENTO">
+            <sqrl:action content="com.vincenzoracca.statemachinejava.action.RetryableAction@51891008"/>
+        </transition>
+        <transition cond="instance#org.squirrelframework.foundation.fsm.Conditions$Always" event="RECRN002D" sqrl:priority="1" sqrl:type="EXTERNAL" target="AR_IRREPERIBILITA_ASSOLUTA_PREESITO">
+            <sqrl:action content="com.vincenzoracca.statemachinejava.action.MetaAction@2f953efd"/>
+        </transition>
+    </state>
+    <state id="AR_FURTO_SMARRIMENTO_DETERIORAMENTO"/>
+</scxml>
