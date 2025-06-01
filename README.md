@@ -96,6 +96,9 @@ Unit tests live under `src/test/java`.
 FSM definition changes, the test fails only if the export throws, keeping
 your diagram in sync with the code.
 
+You can paste the code of `ar-state-machine.dot` to https://dreampuf.github.io/GraphvizOnline to visualize the diagram
+without create a png file, or, you can use `DOT Language` plugin in IntelliJ.
+
 ---
 
 ## 🙋‍♀️Contributing
